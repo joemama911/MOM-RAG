@@ -1,0 +1,7 @@
+streamlit
+faster-whisper
+moviepy
+langchain
+openai
+pypdf2
+faiss-cpu
