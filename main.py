@@ -74,23 +74,23 @@ def main():
         
         if st.button("Process Video"):
             with st.spinner("Extracting audio and transcribing..."):
-                # Step 1: Extract audio from video
+
                 audio_file = video_audio_extraction(video_path)
                 
-                # Step 2: Transcribe audio to text
+
                 transcription_file = transcribe_audio_to_text(audio_file)
                 
-                # Step 3: Read transcription text
+
                 with open(transcription_file, "r") as file:
                     transcription_text = file.read()
                 
-                # Step 4: Split transcription into chunks
+
                 text_chunks = get_text_chunks(transcription_text)
                 
-                # Step 5: Create vector store
+
                 vectorstore = get_vectorstore(text_chunks)
                 
-                # Step 6: Create conversation chain
+
                 st.session_state.conversation_chain = get_conversation_chain(vectorstore)
                 
                 st.success("Processing complete! You can now ask questions based on the video content.")
